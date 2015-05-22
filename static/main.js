@@ -10,6 +10,9 @@ $(function() {
 	var $messageinput = $app.find('.messageinput').removeAttr('disabled').focus();
 	var $nameinput = $app.find('.nameinput');
 
+	// join channel
+	socket.emit('join', {channel: $('.channel').val()});
+
 	// receive message
 	socket.on('mensaje', function(message) {
 		$messages.append($('<li>', {'class':'message', text:message.username+': '+message.text}));
@@ -21,7 +24,8 @@ $(function() {
 		if (event.keyCode == 13) {
 			message = {
 				text: $messageinput.val().trim(), 
-				username: $nameinput.val().trim()
+				username: $nameinput.val().trim(), 
+				channel: $('.channel').val()
 			}
 			console.log('send message: ', message);
 			socket.emit('mensaje', message);

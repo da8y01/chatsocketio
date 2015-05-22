@@ -13,6 +13,7 @@ html
 					input.nameinput.form-control(type='text', value='Guest')
 				.col-md-10
 					input.messageinput.form-control(type='text', placeholder='Enter message here')
+					input.channel(type='hidden', value='#{channel}')
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
 		script(src='/socket.io/socket.io.js')
 		script(src='static/main.js')
