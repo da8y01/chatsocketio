@@ -11,8 +11,9 @@ var io = socketio.listen(server);
 app.set('views', require('path').join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(express.static(require('path').join(__dirname, 'static')));
-app.get('*', function(req, res) {
+app.use('/static', express.static(require('path').join(__dirname, 'static')));
+// app.use(express.static(__dirname));
+app.get('/', function(req, res) {
 	res.render('index');
 });
 app.use(function(req, res, next) {
@@ -20,6 +21,12 @@ app.use(function(req, res, next) {
 });
 
 // set socket io
+io.sockets.on('connection', function(socket) {
+	socket.on('mensaje', function(message) {
+		console.log('Mensaje recibido: ', message);
+		io.sockets.emit('mensaje', message);
+	});
+});
 
 // start listening
 server.listen(8888);

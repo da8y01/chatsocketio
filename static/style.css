@@ -1,0 +1,9 @@
+.messages {
+  max-height: 500px;
+  border: 1px solid gray;
+  overflow: auto;
+}
+.messageinput {
+  width: 100%;
+  padding: 1em;
+}

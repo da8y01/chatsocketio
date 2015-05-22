@@ -1,0 +1,13 @@
+URL jQuery: http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
+módulo socket.io: /socket.io/socket.io.js
+
+estilos:
+.messages {
+  max-height: 500px;
+  border: 1px solid gray;
+  overflow: auto;
+}
+.messageInput {
+  width: 100%;
+  padding: 1em;
+}

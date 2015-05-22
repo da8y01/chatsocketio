@@ -2,5 +2,11 @@ doctype html
 html
 	head
 		title Tiny socket.io chat example
+		link(rel='stylesheet', href='/static/style.css')
 	body
-		h1 Hello socket.io
+		.app
+			ul.messages
+			input.messageinput(type='text', placeholder='Enter message here')
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+		script(src='/socket.io/socket.io.js')
+		script(src='static/main.js')
